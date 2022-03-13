@@ -8,8 +8,6 @@
 
 import React from 'react';
 import type {Node} from 'react';
-// import AppHeader from './components/layout/Header.js';
-// import Icon from 'react-native-vector-icons/AntDesign';
 import {SafeAreaView, StyleSheet, Text, ImageBackground} from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
 import {Header, Icon} from 'react-native-elements';
