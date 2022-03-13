@@ -9,7 +9,6 @@
 import React from 'react';
 import type {Node} from 'react';
 import {SafeAreaView, StyleSheet, Text, ImageBackground} from 'react-native';
-// import LinearGradient from 'react-native-linear-gradient';
 import {Header, Icon} from 'react-native-elements';
 const App: () => Node = () => {
   return (
