@@ -6,7 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -22,36 +23,42 @@ import {Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const App: () => Node = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide(); /** 추가 **/
+    }, 2000); /** 스플래시 시간 조절 (2초) **/
+  });
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      showsHorizontalScrollIndicator={false}
-      stickyHeaderIndices={[0]}>
+      showsHorizontalScrollIndicator={false}>
       <SafeAreaView>
-        {
-          <Header
-            style={styles.headerStyle}
-            leftComponent={{icon: 'menu', color: '#fff'}}
-            centerComponent={{text: 'MY TITLE', style: {color: '#fff'}}}
-            rightComponent={{icon: 'home', color: '#fff'}}
-          />
-        }
-        {/* <View style={styles.tmp}></View> */}
-        {/* <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
-          style={styles.linearGradient}>
-          <Text style={styles.buttonText}>Sign in with Facebook</Text>
-        </LinearGradient> */}
-        {
-          <Image
-            source={require('./assets/img/img_iu_1920.jpg')}
-            style={styles.bgImage}></Image>
-        }
-        {
-          <Image
-            source={require('./assets/img/img_iu_1920.jpg')}
-            style={styles.bgImage}></Image>
-        }
+        {/* <Header
+          backgroundColor="transparent"
+          containerStyle={styles.headerContainer}
+          leftComponent={{
+            icon: 'menu',
+            color: '#fff',
+            underlayColor: '#3488C0',
+          }}
+          centerComponent={{
+            text: 'My History',
+            style: {
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'white',
+            },
+          }}
+        /> */}
+        <Header
+          backgroundColor="#5f9ea0"
+          placement="left"
+          leftComponent={{icon: 'menu', color: '#fff'}}
+          centerComponent={{text: 'Home', style: {color: '#fff'}}}
+        />
+        <Image
+          source={require('./assets/img/img_iu_1920.jpg')}
+          style={styles.bgImage}></Image>
       </SafeAreaView>
     </ScrollView>
   );
@@ -60,6 +67,15 @@ let ScreenHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   tmp: {
     height: 1000,
+  },
+  headerContainer: {
+    width: '100%',
+    backgroundColor: '#3488C0',
+    borderBottomWidth: 0,
+    height: Platform.select({
+      android: 56,
+      default: 44,
+    }),
   },
   headerStyle: {},
   buttonText: {
