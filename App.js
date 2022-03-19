@@ -18,11 +18,10 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import {Header, Icon} from 'react-native-elements';
+// import {Icon} from 'react-native-elements';
 import {Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Headers} from './src/Layout/Headers';
-import {HomeContent} from './src/UIComponent/Card/HomeContent';
+import Home from './src/Pages/Home.js';
 
 import GradientHeader from 'react-native-gradient-header';
 
@@ -33,21 +32,18 @@ const App: () => Node = () => {
     }, 2000); /** 스플래시 시간 조절 (2초) **/
   });
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      showsHorizontalScrollIndicator={false}>
-      <SafeAreaView>
-        <Header
+    <SafeAreaView>
+      <Home />
+      {/* <Header
           style={styles.headerStyle}
           backgroundColor="#F16581"
           placement="left"
           leftComponent={{icon: 'menu', color: '#fff'}}
-          centerComponent={{text: 'IU', style: {color: '#fff'}}}></Header>
-        <Image
+          centerComponent={{text: 'IU', style: {color: '#fff'}}}></Header> */}
+      {/* <Image
           source={require('./assets/img/img_iu_1920.jpg')}
-          style={styles.bgImage}></Image>
-      </SafeAreaView>
-    </ScrollView>
+          style={styles.bgImage}></Image> */}
+    </SafeAreaView>
   );
 };
 let ScreenHeight = Dimensions.get('window').height;
