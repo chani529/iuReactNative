@@ -21,6 +21,10 @@ import {
 import {Header, Icon} from 'react-native-elements';
 import {Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {Headers} from './src/Layout/Headers';
+import {HomeContent} from './src/UIComponent/Card/HomeContent';
+
+import GradientHeader from 'react-native-gradient-header';
 
 const App: () => Node = () => {
   useEffect(() => {
@@ -33,29 +37,12 @@ const App: () => Node = () => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}>
       <SafeAreaView>
-        {/* <Header
-          backgroundColor="transparent"
-          containerStyle={styles.headerContainer}
-          leftComponent={{
-            icon: 'menu',
-            color: '#fff',
-            underlayColor: '#3488C0',
-          }}
-          centerComponent={{
-            text: 'My History',
-            style: {
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-            },
-          }}
-        /> */}
         <Header
-          backgroundColor="#5f9ea0"
+          style={styles.headerStyle}
+          backgroundColor="#F16581"
           placement="left"
           leftComponent={{icon: 'menu', color: '#fff'}}
-          centerComponent={{text: 'Home', style: {color: '#fff'}}}
-        />
+          centerComponent={{text: 'IU', style: {color: '#fff'}}}></Header>
         <Image
           source={require('./assets/img/img_iu_1920.jpg')}
           style={styles.bgImage}></Image>
@@ -77,7 +64,12 @@ const styles = StyleSheet.create({
       default: 44,
     }),
   },
-  headerStyle: {},
+  headerStyle: {
+    backgroundColor: '#3488C0',
+    borderBottomLeftRadius: 300,
+    borderBottomRightRadius: 300,
+    height: 120,
+  },
   buttonText: {
     fontSize: 18,
     fontFamily: 'Gill Sans',
@@ -99,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 730,
   },
   bgImage: {
-    height: ScreenHeight - 100,
+    height: ScreenHeight,
     aspectRatio: 1, // Your aspect ratio
     // flex: 1,
   },
