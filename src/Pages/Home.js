@@ -32,30 +32,31 @@ class Home extends Component {
 
   render() {
     const {stickyHeaderHeight, data} = this.state;
-    return (
-      <>
-        <Animated.FlatList
-          contentContainerStyle={{paddingTop: this.state.headerHeight}}
-          onScroll={Animated.event(
-            [{nativeEvent: {contentOffset: {y: this.scrollY}}}],
-            {useNativeDriver: true},
-          )}
-          data={data}
-          renderItem={({item}) => {
-            return <HomeContent />;
-          }}
-          keyExtractor={item => item.id}
-        />
-        <CollapsibleHeader
-          ref={this.header}
-          onLayout={this.onHeaderLayout}
-          scrollY={this.scrollY}
-          stickyHeaderHeight={stickyHeaderHeight}>
-          <Text style={styles.sectionTitle}> With U, IU</Text>
-          <TabBar onLayout={this.onStickyHeaderLayout} />
-        </CollapsibleHeader>
-      </>
-    );
+    return [
+      //?????
+
+      <Animated.FlatList
+        contentContainerStyle={{paddingTop: this.state.headerHeight}}
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: this.scrollY}}}],
+          {useNativeDriver: true},
+        )}
+        data={data}
+        renderItem={({item}) => {
+          return <HomeContent />;
+        }}
+        keyExtractor={item => item.id}
+      />,
+
+      <CollapsibleHeader
+        ref={this.header}
+        onLayout={this.onHeaderLayout}
+        scrollY={this.scrollY}
+        stickyHeaderHeight={stickyHeaderHeight}>
+        <Text style={styles.sectionTitle}> With U, IU</Text>
+        <TabBar onLayout={this.onStickyHeaderLayout} />
+      </CollapsibleHeader>,
+    ];
   }
 }
 let ScreenHeight = Dimensions.get('window').height;

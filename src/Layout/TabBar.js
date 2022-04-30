@@ -59,6 +59,7 @@ class TabBar extends React.Component {
     return (
       <View style={styles.container} onLayout={this.onViewLayout}>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           horizontal
           data={TABS}
           keyExtractor={item => '' + item.key}
